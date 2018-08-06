@@ -76,7 +76,7 @@ client.on('message', async msg => { // eslint-disable-line
 			        .setDescription(`**الرجآء من حضرتك إختيآر رقم المقطع** :
 ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-					.setFooter("by:hamo")
+					.setFooter("S7Q BOT")
 					msg.channel.sendEmbed(embed1).then(message =>{message.delete(20000)})
 					
 					// eslint-disable-next-line max-depth
@@ -105,13 +105,13 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لتجآوزه');
 		serverQueue.connection.dispatcher.end('تم تجآوز هذآ المقطع');
 		return undefined;
-	} else if (command === `واقف`) {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
+	} else if (command === `اطلع`) {//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
 		if (!serverQueue) return msg.channel.send('لا يتوفر مقطع لإيقآفه');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('تم إيقآف هذآ المقطع');
 		return undefined;
-	} else if (command === `ارتفاع`) {
+	} else if (command === `صوت`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('أنت لست بروم صوتي .');
 		if (!serverQueue) return msg.channel.send('لا يوجد شيء شغآل.');
 		if (!args[1]) return msg.channel.send(`:loud_sound: مستوى الصوت **${serverQueue.volume}**`);
@@ -134,14 +134,14 @@ ${videos.map(video2 => `[**${++index} **] \`${video2.title}\``).join('\n')}`)
 ${serverQueue.songs.map(song => `**${++index} -** ${song.title}`).join('\n')}
 **الان يتم تشغيل** ${serverQueue.songs[0].title}`)
 		return msg.channel.sendEmbed(embedqu);
-	} else if (command === `pause`) {
+	} else if (command === `وقف`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 			return msg.channel.send('تم إيقاف الموسيقى مؤقتا!');
 		}//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
 		return msg.channel.send('لا يوجد شيء حالي ف العمل.');
-	} else if (command === "resume") {
+	} else if (command === "كمل") {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
@@ -243,24 +243,33 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 
 });
 
-client.on("message", message => {
- if (message.content === `${prefix}help`) {
-  const embed = new Discord.RichEmbed() //by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-      .setColor("#000000")//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-      .setDescription(`
-شغل${prefix} ⇏ لتشغيل أغنية برآبط أو بأسم
-تخطي ${prefix}⇏ لتجآوز الأغنية الحآلية
-مؤاقت ${prefix}⇏ إيقآف الأغنية مؤقتا
-resume${prefix} ⇏ لموآصلة الإغنية بعد إيقآفهآ مؤقتا
-ارتفع ${prefix}⇏ لتغيير درجة الصوت 100 - 0
-واقف ⇏ لإخرآج البوت من الروم
-np ⇏ لمعرفة الأغنية المشغلة حآليا
-queue ⇏ لمعرفة قآئمة التشغيل
+ client.on('message', message => {
+     if (message.content === prefix +"مساعدة") {
+    const embed = new Discord.RichEmbed()
+     .setColor("RANDOM")
+     .addField(`**__أوامر البوت__**`,`
+.    **${prefix}تعال**
+	 عشان يدخل البوت الروم
+	 **${prefix}شغل**
+	 امر تشغيل الأغنية , !شغل الرابط او اسم الأعنية
+	 **${prefix}تخطي**
+	 تغير الأغنية
+	 **${prefix}وقف**
+	 ايقاف الأغنية
+	 **${prefix}كمل**
+     مواصلة الأغنية
+	 **${prefix}صوت**
+	 مستوى الصوت 1-100
+	 **${prefix}اطلع**
+	 خروج البوت من الروم
 
- `)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-   message.channel.sendEmbed(embed)//by ,$ ReBeL ء , 🔕#4777 'CODES SERVER'
-    
-   }
-   }); 
-   
+
+	 prefix = ${prefix}
+	 ping = ${Date.now() - message.createdTimestamp}ms
+	 for help = <@464824355990536193>
+	by : !S7Q | ĦÂмØ♚ 1k#4141 `)
+
+      message.channel.send({embed});
+	 }
+	});
 client.login(process.env.BOT_TOKEN);
