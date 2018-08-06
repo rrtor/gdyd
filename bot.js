@@ -248,8 +248,6 @@ if (message.content.startsWith(adminprefix + 'setT')) {
     const embed = new Discord.RichEmbed()
      .setColor("RANDOM")
      .addField(`**__أوامر البوت__**`,`
-.    **${prefix}تعال**
-	 عشان يدخل البوت الروم
 	 **${prefix}شغل**
 	 امر تشغيل الأغنية , !شغل الرابط او اسم الأعنية
 	 **${prefix}تخطي**
@@ -266,7 +264,7 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 
 	 prefix = ${prefix}
 	 ping = ${Date.now() - message.createdTimestamp}ms
-	 for help = <@464824355990536193>
+	 <@466425075487342615>
 	by : !S7Q | ĦÂмØ♚ 1k#4141 `)
 
       message.channel.send({embed});
