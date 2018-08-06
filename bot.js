@@ -280,7 +280,7 @@ client.on('ready', () => {
       console.log(`ON ${client.guilds.size} Servers '     Script By : Hamo ' `);
     console.log(`----------------`);
   console.log(`Logged in as ${client.user.tag}!`);
-client.user.setGame(`$مساعدة`,"http://www.youtube.com/gg")
+client.user.setGame(`${prefix}مساعدة`,"http://www.youtube.com/gg")
 client.user.setStatus("dnd")
 });
 client.login(process.env.BOT_TOKEN);
