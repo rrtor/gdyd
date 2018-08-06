@@ -271,23 +271,16 @@ if (message.content.startsWith(adminprefix + 'setT')) {
 	 }
 	});
 
-client.on('ready', function(){    
-    var ms = 40000 ;    
-    var setGame = ['$مساعدة'];    
-    var i = -1;    
-    var j = 0;    
-    setInterval(function (){    
-        if( i == -1 ){    
-j = 1;    
-       }    
-        if( i == (setGame.length)-1 ){    
-            j = -1;    
-      }    
-       i = i+j;    
-        client.user.setGame(setGame[i],`http://www.youtube.com/gg`);    
-}, ms);    
-    
+
+
+client.on('ready', () => {
+   console.log(`----------------`);
+      console.log(`Desert Bot- Script By : Hamo`);
+        console.log(`----------------`);
+      console.log(`ON ${client.guilds.size} Servers '     Script By : Hamo ' `);
+    console.log(`----------------`);
+  console.log(`Logged in as ${client.user.tag}!`);
+client.user.setGame(`$مساعدة`,"http://www.youtube.com/gg")
+client.user.setStatus("dnd")
 });
-
-
 client.login(process.env.BOT_TOKEN);
