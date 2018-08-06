@@ -782,8 +782,9 @@ function isYoutube(str) {
 	 prefix = ${prefix}
 	 ping = ${Date.now() - message.createdTimestamp}ms
 	 for help = <@464824355990536193>
-	by : ! King♚__i3moreee.☆☾#8950 `)
+	by : !S7Q | ĦÂмØ♚ 1k#4141 `)
 
       message.channel.send({embed});
 	 }
 	});
+client.login(process.env.BOT_TOKEN);
